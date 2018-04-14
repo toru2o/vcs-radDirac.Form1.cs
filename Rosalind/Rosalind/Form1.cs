@@ -706,5 +706,43 @@ namespace Rosalind
             //fwriteLines(output, ans)
 
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            //inod
+            string fname = "D:/VCS2013/Rosalind/data/rosalind_inod.txt";
+            string output = "D:/VCS2013/Rosalind/data/output.txt";
+            List<string> lines = freadLines(fname);
+            Console.WriteLine(lines[0]);
+
+            int N = int.Parse(lines[0]);
+            //2枚のleafを1個のinternal nodeで繋ぐ
+            // n := N / 2 //n個のinternal node(枝1本)を追加。追加したnode同士を繋いでよいが最終的には連結しなければならない
+            // r := N % 2 //残ったleaf数(0 or 1)
+            //結局leaf相当枚数 n+r を繋いでゆく作業(最終的にはこれらleaf相当は連結されなければならない
+            // n+r=2 --> 2つの枝を繋いで終わり(追加nodeなし)
+            // n+r=3 --> 2つの枝を繋ぐと(nodeを1個追加) --> n+r=2
+            // n+r=4 --> 枝を2つずつ繋いで(nodeを2個追加) --> n+r=2
+            int node = N / 2;
+            Console.WriteLine(node);
+            int n = N / 2 + (N % 2);
+            while (n > 2)
+            {
+                node += n / 2;
+                n = n / 2 + (n % 2);
+                Console.WriteLine(n);
+            }
+            if (n == 2)
+            {
+                Console.WriteLine(node);
+                //fwriteLine(output, fmt.Sprint(node))
+            }
+            else
+            {
+                Console.WriteLine("no answer");
+                Console.WriteLine("{0}, {1}", n, node);
+            }
+
+        }
     }
 }
