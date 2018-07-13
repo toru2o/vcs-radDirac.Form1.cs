@@ -1,0 +1,23 @@
+# gChart_2D.txt 
+
+set terminal windows size 1000, 850
+#set title "Soliton"
+#set xlabel "Real"
+#set ylabel "Imaginary"
+set grid lt 9
+
+set xrange[-1:60]
+
+plot "D:/VCS2013/practice/radSchro/data1.txt" w l lc rgb "red"
+#plot "D:/VCS/Schroedinger/Schroedinger1D/data2.txt" w l lc rgb "green","D:/VCS/Schroedinger/Schroedinger1D/data.txt" w l lt 1 lc rgb "red"
+
+#set terminal png
+#set output "D:/VCS2013/practice/radSchro/chart.png"
+#replot
+
+#set terminal postscript eps
+set terminal postscript eps enhanced color
+set tics font "Helvetica,8"
+set output "D:/VCS2013/practice/radSchro/chart.eps"
+replot
+
